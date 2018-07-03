@@ -15,7 +15,7 @@ class Chat extends Component {
                 user: {
                     uid: 'lskajf;sei',
                     displayName: 'Kathryn',
-                    email: 'kathryn.stapleton777@gmail.com'
+                    email: 'k@gmail.com'
                 },
                 body: 'hey wats up yellow',
             },
@@ -31,12 +31,28 @@ class Chat extends Component {
         ] 
       }
   }
+
+  addMessage = () => {
+      const messages= [...this.state.messages];
+      messages.push({
+          id: Date.now(),
+          user: {
+            uid: 'nzcv.03',
+            displayName: 'Madison',
+            email: 'stefany@singing.org'    
+          },
+          body:'I do not htink he\'s annoying. Or is he?',
+      })
+
+      this.setState({messages: messages});
+    }
+
   render(){
     return (
       <div className="Chat">
         <ChatHeader />
         <MessageList messages={this.state.messages} />
-        <MessageForm />
+        <MessageForm addMessage={this.addMessage}/>
       </div>
     );
   }
