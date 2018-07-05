@@ -8,25 +8,36 @@ class App extends Component {
   constructor(){
     super();
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
     this.state = {
-      user: {
-        uid: '3jas9w3kp',
-        displayName: 'Daniel',
-        email: 'dandantherunningman@hotmail.com'
-      }
+      user: user || {},
     };
   }
 
   handleAuth = (user) => {
     this.setState({user})
+    localStorage.setItem('user', JSON.stringify(user))
+  }
+
+  areSignedIn = () => {
+    return this.state.user.uid
+  }
+
+  signOut = () => {
+    this.setState({user: ''})
   }
 
   render() {
     return (
       <div className="App">
-         
-        <SignIn user={this.state.user} />
-        <Main user={this.state.user}/>
+         {
+           this.areSignedIn()  
+            ? <Main user={this.state.user} signOut={this.signOut} />
+            : <SignIn user={this.state.user} />
+         }
+        
+        
       </div>
     );
   }
