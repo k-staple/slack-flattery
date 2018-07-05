@@ -16,6 +16,11 @@ class App extends Component {
       }
     };
   }
+
+  handleAuth = (user) => {
+    this.setState({user})
+  }
+
   render() {
     return (
       <div className="App">
