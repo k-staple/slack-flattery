@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Stylesheet, css } from ''
 
 class MessageForm extends Component {
     state = {
@@ -17,7 +18,10 @@ class MessageForm extends Component {
 
     render(){
         return (
-            <form onSubmit={this.handleSubmit} className="MessageForm" style={styles.MessageForm}>
+            <form onSubmit={this.handleSubmit} className={`MessageForm ${css(styles.messageForm)}`} style={styles.MessageForm}>
+              <div class="chatIcon">
+          <i class="fas fa-comment-alt"></i>
+        </div>
               <input
                 autoFocus
                 required

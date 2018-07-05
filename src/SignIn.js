@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 class SignIn extends Component {
     state = {
-        email= '';
+        email: '',
     }
 
     handleSubmit = (ev)  => {
