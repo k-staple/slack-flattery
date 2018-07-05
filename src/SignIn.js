@@ -7,6 +7,7 @@ class SignIn extends Component {
     }
 
     render() {
+        return (
         <form onSubmit={this.handleSubmit}>
               <input
                 autoFocus
@@ -16,6 +17,7 @@ class SignIn extends Component {
                 placeholder="Type username"
                 />
         </form>
+        );
     }
 }
 
