@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 
+import SidebarLinks from './SidebarLinks'
+
 const Sidebar = (props) =>  {
 
     return (
-    <aside class="Sidebar" style={styles.sidebar}>
-      <div class="UserInfo">
+    <aside className="Sidebar" style={styles.sidebar}>
+      <div className="UserInfo">
         <div
-          class="Avatar"
+          className="Avatar"
         ></div>
-        <div class="user">Davey</div>
+        <div className="user">Davey</div>
         <a href="#">
-          <i class="fas fa-sign-out-alt"></i>
+          <i className="fas fa-sign-out-alt"></i>
         </a>
       </div>
       <h1 style={styles.h1}>XTBC 18</h1>
-      <nav class="RoomList" style={styles.children}>
+      <nav className="RoomList" style={styles.children}>
         <h2>Rooms</h2>
-        <ul>
-          <li><a href="#">general</a></li>
-          <li><a href="#">random</a></li>
-        </ul>
+        <SidebarLinks />
       </nav>
     </aside>
     )
@@ -36,8 +35,10 @@ const styles = {
     flexDirection: 'column',
   },
 
+ 
   children: {
     padding: '0 1rem',
+    
   },
 
   h1: {
