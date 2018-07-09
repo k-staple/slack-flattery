@@ -4,7 +4,7 @@ import SidebarLinks from './SidebarLinks'
 import UserInfo from './UserInfo'
 // import { userInfo } from 'os';
 
-const Sidebar = (props) =>  {
+const Sidebar = (props, rooms) =>  {
 
     return (
     <aside className="Sidebar" style={styles.sidebar}>
@@ -12,7 +12,7 @@ const Sidebar = (props) =>  {
       <h1 style={styles.h1}>XTBC 18</h1>
       <nav className="RoomList" style={styles.children}>
         <h2>Rooms</h2>
-        <SidebarLinks />
+        <SidebarLinks rooms={rooms}/>
       </nav>
     </aside>
     )
