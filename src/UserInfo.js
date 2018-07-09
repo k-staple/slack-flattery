@@ -13,9 +13,7 @@ const UserInfo = ({user, signOut}) => {
       <div style={styles.user}>
         {user.displayName}
       </div>
-      <a href="#">
-        <i className="fas fa-sign-out-alt"></i>
-      </a>
+        <SignOutButton />
     </div>
   )
 }
