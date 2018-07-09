@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 
 import SidebarLinks from './SidebarLinks'
+import UserInfo from './UserInfo'
+// import { userInfo } from 'os';
 
 const Sidebar = (props) =>  {
 
     return (
     <aside className="Sidebar" style={styles.sidebar}>
-      <div className="UserInfo">
-        <div
-          className="Avatar"
-        ></div>
-        <div className="user">Davey</div>
-        <a href="#">
-          <i className="fas fa-sign-out-alt"></i>
-        </a>
-      </div>
+    <UserInfo />
       <h1 style={styles.h1}>XTBC 18</h1>
       <nav className="RoomList" style={styles.children}>
         <h2>Rooms</h2>
