@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Metadata from './Metadata'
+import Avatar from './Avatar'
 
 const Message = ({message}) => {
     return (
@@ -9,7 +9,7 @@ const Message = ({message}) => {
           <div style={styles.avatar}>
           </div>
           <div style={styles.details}>
-            {props.message.user.displayName}: {props.message.body}
+            {message.user.displayName}: {message.body}
           </div>
         </div>
     )

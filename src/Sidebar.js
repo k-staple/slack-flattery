@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import UserInfo from './UserInfo'
+import SidebarLinks from './SidebarLinks'
 
 const Sidebar = (props) =>  {
 
