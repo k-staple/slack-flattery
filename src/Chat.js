@@ -4,6 +4,8 @@ import ChatHeader from './ChatHeader'
 import MessageList from './MessageList'
 import MessageForm from './MessageForm'
 
+import base from 'base'
+
 class Chat extends Component {
   constructor(){
       super();
@@ -30,6 +32,22 @@ class Chat extends Component {
         
         ] 
       }
+  }
+
+  componentDidMount(){
+      this.messagesRef=base.syncState(
+          'MessagesDatabaseTitle',
+          {
+            //sync the state of THIS component
+            context: this,  
+            state: 'messages',
+            asArray: 'true',
+          }
+      )
+  }
+
+  componentWillUnmount(){
+      base.removeBinding(this.messagesRef)
   }
 
   addMessage = (body) => {
