@@ -1,7 +1,9 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-const SidebarLinks = ({rooms, setCurrentRoom}) => {
+import Room from './Room'
+
+const SidebarLinks = ({rooms, setCurrentRoom, showRoomForm}) => {
   const handleClick = ev => {
     ev.preventDefault();
     setCurrentRoom(roomName);
