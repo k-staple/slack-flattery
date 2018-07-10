@@ -34,7 +34,7 @@ class App extends Component {
       uid: oAuthUser.uid,
       displayName: oAuthUser.displayName,
       email: oAuthUser.email,
-      photoUrl: oAuthUser.URL,
+      photoUrl: oAuthUser.photoURL,
     };
     this.setState({user});
     localStorage.setItem('user', JSON.stringify(user));
