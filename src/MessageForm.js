@@ -18,9 +18,9 @@ class MessageForm extends Component {
 
     render(){
         return (
-            <form onSubmit={this.handleSubmit} className={`MessageForm ${css(styles.messageForm)}`} style={styles.MessageForm}>
-              <div class="chatIcon">
-          <i class="fas fa-comment-alt"></i>
+            <form onSubmit={this.handleSubmit} classNameName={`MessageForm ${css(styles.messageForm)}`} style={styles.MessageForm}>
+              <div className="chatIcon">
+          <i className="fas fa-comment-alt"></i>
         </div>
               <input
                 autoFocus

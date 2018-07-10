@@ -4,11 +4,11 @@ import SidebarLinks from './SidebarLinks'
 import UserInfo from './UserInfo'
 // import { userInfo } from 'os';
 
-const Sidebar = (props, rooms) =>  {
+const Sidebar = ({user, signOut, rooms}) =>  {
 
     return (
     <aside className="Sidebar" style={styles.sidebar}>
-    <UserInfo />
+    <UserInfo user={user} signOut={signOut}/>
       <h1 style={styles.h1}>XTBC 18</h1>
       <nav className="RoomList" style={styles.children}>
         <h2>Rooms</h2>

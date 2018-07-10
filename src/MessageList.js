@@ -2,12 +2,12 @@ import React from 'react'
 
 import Message from './Message'
 
-const MessageList = (props) => {
+const MessageList = ({ messages, room }) => {
     
     
     return (
     <div className="MessageList" style={styles.MessageList}>
-        {props.messages.map(msg => (
+        {messages.map(msg => (
           <Message message={msg} key={msg.id}/>
         ))}
     </div>
