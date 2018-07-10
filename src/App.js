@@ -46,7 +46,7 @@ class App extends Component {
 
   signOut = () => {
     auth.signOut();
-    this.setState({user: ''});
+    this.setState({user: {} });
     localStorage.removeItem('user');
   }
 
