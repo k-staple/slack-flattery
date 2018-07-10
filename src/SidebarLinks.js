@@ -1,13 +1,24 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-const SidebarLinks = (rooms) => {
+const SidebarLinks = ({rooms, setCurrentRoom}) => {
+  const handleClick = ev => {
+    ev.preventDefault();
+    setCurrentRoom(roomName);
+  }
+
+
   return (
     <nav className={`RoomList ${css(styles.roomList)}`}
      >
-    <h2 className={css(styles.h2)}>
-        Rooms
-      </h2>
+      <div>
+        <h2 className={css(styles.h2)}>
+            Rooms
+        </h2>
+        <button className="header" onClick={showRoomForm}>
+          <i className="fas fa-plus" title="Add a room"></i>
+        </button>
+      </div>
       <ul className={css(styles.list)}>
         {
           Object.keys(rooms).map(
@@ -32,6 +43,10 @@ const styles = StyleSheet.create({
 
   h2: {
     fontSize: '1rem',
+  },
+
+  header: {
+    
   },
 
   list: {

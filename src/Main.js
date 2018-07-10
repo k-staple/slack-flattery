@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import Sidebar from './Sidebar'
 import Chat from './Chat'
+import RoomForm from './RoomForm'
+import base from './base'
 
 class Main extends Component  {
     state = {
@@ -9,20 +11,44 @@ class Main extends Component  {
           name: 's3afternoon',
           description: 'Ask questions and share code',
       },
-      rooms: {
-        s3afternoon: {
-            name: 's3afternoon',
-          description: 'Ask questions and share code',
-        },
-        general: {
-            name: 'General',
-          description: 'Chat about whatever',
-        },
-        random: {
-            name: 'random',
-          description: 'cat gifs, etc.',
-        },
-      },
+      rooms: {},
+      showRoomForm: false,
+    }
+
+    showRoomForm = () => {
+        this.setState({ showRoomForm: true});
+    }
+
+    hideRoomForm = () => {
+        this.setState({ showRoomForm: false});
+    }
+
+    addRoom = room => {
+        const rooms = {...this.state.rooms}
+        rooms[room.name]
+    }
+
+    componentDidMount(){
+        this.roomsRef = base.syncState(
+          'rooms',
+          {
+              context: '',
+              state: '',
+              defaultValue: {
+                general: {
+                  name: 'General',
+                  description: 'Chat about whatever',
+                },
+              }
+          }
+
+        );
+
+    }
+
+    componentWillUnmount(){
+
+
     }
 
     setCurrentRoom = (roomName) => {
@@ -33,8 +59,11 @@ class Main extends Component  {
     render(){
         return (
             <div className="Main" style={styles}>
-                    <Sidebar user={this.props.user} rooms={this.state.rooms} signOut={this.props.signOut}/>
-              <Chat user={this.props.user} room={this.state.room}/>
+              <div>
+                <RoomForm addRoom={this.addRoom} hideRoomForm={this.hideRoomForm}/>
+              </div>
+              {/* <Sidebar user={this.props.user} rooms={this.state.rooms} signOut={this.props.signOut} setCurrentRoom={this.setCurrentRoom}/>
+              <Chat user={this.props.user} room={this.state.room}/> */}
             </div>
         )
     }
