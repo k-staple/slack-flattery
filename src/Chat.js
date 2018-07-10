@@ -13,7 +13,7 @@ class Chat extends Component {
       this.state= {
         messages: [], 
       }
-  }
+      
 
   componentDidMount(){
     this.syncMessages();
