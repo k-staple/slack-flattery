@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Metadata = ({user}) => {
+const Metadata = ({ message }) => {
    return (
     <div class="Metadata">
     <div class="user">Dana</div>
-    <div class="time">1:20 PM</div>
+    <div class="time">{moment()}</div>
   </div>
    )
 

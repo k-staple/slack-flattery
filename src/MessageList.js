@@ -1,17 +1,29 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import Message from './Message'
 
-const MessageList = ({ messages, room }) => {
-    
-    
+class MessageList extends Component {
+  componentDidUpdate(prevProps){
+      if (prevProps.messages.length < this.props.messages.length){
+        this.scroollToBottom();
+      }
+  }
+
+   // smooth and other properites don't work in internet explorer
+   scroollToButton = () => {
+       this.messages.End.scrollIntoView({ behavior: 'smooth'})
+   }
+   render(){
     return (
     <div className="MessageList" style={styles.MessageList}>
         {/* {messages.map(msg => (
           <Message message={msg} key={msg.id}/>
         ))} */}
+      <div ref={el => this.messagesEnd = el}></div>
+
     </div>
     )
+    }
 
 }
 
