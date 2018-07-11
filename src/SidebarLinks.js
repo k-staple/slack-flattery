@@ -4,20 +4,15 @@ import { StyleSheet, css } from 'aphrodite'
 import Room from './Room'
 
 const SidebarLinks = ({rooms, setCurrentRoom, showRoomForm}) => {
-  const handleClick = ev => {
-    ev.preventDefault();
-    setCurrentRoom(roomName);
-  }
-
-
+  
   return (
     <nav className={`RoomList ${css(styles.roomList)}`}
      >
-      <div>
+      <div className={css(styles.heading)}>
         <h2 className={css(styles.h2)}>
             Rooms
         </h2>
-        <button className="header" onClick={showRoomForm}>
+        <button className={css(styles.button)} onClick={showRoomForm}>
           <i className="fas fa-plus" title="Add a room"></i>
         </button>
       </div>
@@ -25,9 +20,11 @@ const SidebarLinks = ({rooms, setCurrentRoom, showRoomForm}) => {
         {
           Object.keys(rooms).map(
             roomName => (
-              <li className={css(styles.item)} key={roomName}>
-                <a href="#" className={css(styles.link)}>roomName</a>
-              </li>
+              <Room 
+                key={roomName}
+                roomName={roomName}
+                setCurrentRoom={setCurrentRoom}
+              />
             )
           )
         }
@@ -47,34 +44,35 @@ const styles = StyleSheet.create({
     fontSize: '1rem',
   },
 
-  header: {
-    
-  },
-
   list: {
     listStyle: 'none',
     marginLeft: 0,
     paddingLeft: 0,
   },
 
-  item: {
-    marginBottom: '0.5rem',
+  heading: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
-  link: {
-    display: 'block',
-    color: 'whitesmoke',
-    textDecoration: 'none',
-
-    '::before': {
-      content: '"# "',
-    },
+  button: {
+    border: 0,
+    backgroundColor: 'transparent',
+    outline: 0,
+    padding: 0,
+    color: 'rgba(255,255,255,0.4)',
+    fontSize: '1rem',
+    cursor: 'pointer',
+    transition: 'color 0.25s ease-out',
 
     ':hover': {
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      color: 'white',
     },
   },
+
 })
+
 
 
 export default SidebarLinks
