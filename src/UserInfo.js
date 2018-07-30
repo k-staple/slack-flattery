@@ -13,7 +13,7 @@ const UserInfo = ({user, signOut}) => {
       <div style={styles.user}>
         {user.displayName}
       </div>
-        <SignOutButton />
+        <SignOutButton signOut={signOut}/>
     </div>
   )
 }

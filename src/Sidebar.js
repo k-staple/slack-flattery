@@ -4,7 +4,7 @@ import SidebarLinks from './SidebarLinks'
 import UserInfo from './UserInfo'
 // import { userInfo } from 'os';
 
-const Sidebar = ({user, signOut, rooms}) =>  {
+const Sidebar = ({user, signOut, rooms, showRoomForm}) =>  {
 
     return (
     <aside className="Sidebar" style={styles.sidebar}>
@@ -12,7 +12,7 @@ const Sidebar = ({user, signOut, rooms}) =>  {
       <h1 style={styles.h1}>XTBC 18</h1>
       <nav className="RoomList" style={styles.children}>
         <h2>Rooms</h2>
-        <SidebarLinks rooms={rooms} setCurrentRoom={this.setCurrentRoom}/>
+        <SidebarLinks rooms={rooms} showRoomForm={showRoomForm}/>
       </nav>
     </aside>
     )
